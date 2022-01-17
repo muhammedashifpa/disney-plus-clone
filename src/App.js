@@ -5,17 +5,24 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Header from './components/Header'
 import Home from './components/Home'
 import BottomNav from './components/BottomNav';
-// import Hero from './components/Hero';
+import Detail from './components/Detail';
 import './App.css';
+import Footer from './components/Footer'
 import styled from 'styled-components'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 
 
 
 
 function App() {
-  
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
   const theme = React.useMemo(
     () =>
       createTheme({typography: {
@@ -38,19 +45,39 @@ function App() {
       }),
     [prefersDarkMode],
   );
+
+
   return (
-    <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <div className="App">
-      <Header/>
-      <Home/>
-      {/* <Hero/> */}
-      <BottomNav/>
-    </div>
+   <ThemeProvider theme={theme}>
+     <CssBaseline />
+      <div className="App">
+        <Router>
+          <Header/>
+          <DummyHeader/>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/detail" component={Detail} />
+          </Switch>
+          <Footer/>
+          <BottomNav/>
+        </Router>
+      </div>
     </ThemeProvider>
   );
 }
 
 export default App;
+
+
+const DummyHeader = styled.div`
+height:80px;
+
+box-shadow:none;
+@media (max-width:480px){
+    height:60px;
+}
+
+
+`
 
 

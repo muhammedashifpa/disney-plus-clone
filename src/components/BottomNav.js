@@ -45,6 +45,9 @@ const Custompaper = styled(Paper)`
 const BottomNavigationC = styled(BottomNavigation)`
     height:60px;
     background:#121926!important;
+    button{
+        min-width:0;
+    }
 `
 
 const BottomNavigationActionC = styled(BottomNavigationAction)`

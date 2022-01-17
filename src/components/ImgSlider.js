@@ -40,6 +40,12 @@ const Carousel = styled(Slider)`
     Button{
        z-index:1;
    } 
+   @media (max-width:480px){
+    .slick-arrow{
+      display:none !important;
+    }
+}
+
 `
 
 const Wrapper = styled.div`

@@ -14,7 +14,7 @@ import IconButton from '@mui/material/IconButton';
 
 function Header() {
     return (
-            <Box sx={{ flexGrow: 1, }}>
+            <CustomBox sx={{ flexGrow: 1, position:'fixed',top: 0,left: 0,right: 0, }}>
                 <CustomAppBar position="static">
                     <Toolbar>
                     <IconButton
@@ -64,12 +64,17 @@ function Header() {
                     </RightMenu>
                     </Toolbar>
                 </CustomAppBar>
-            </Box>
+            </CustomBox>
         
     )
 }
 
 export default Header
+
+const CustomBox = styled(Box)`
+    z-index:999;
+`
+
 const CustomAppBar = styled(AppBar)`
     height:80px;
     justify-content: center;
@@ -126,7 +131,7 @@ const RightMenu = styled.div`
 
 `
 const SearchBar = styled.div`
-    @media (max-width:769px){
+    @media (max-width:770px){
         display:none;
     }
 
@@ -154,8 +159,8 @@ const LoginButton = styled(Button)`
     }
 `
 const SearchIconButton = styled(IconButton)`
-    @media (min-width:770px){
-        display:none;
+    @media (min-width:771px){
+        display:none !important;
     }
 
 `
